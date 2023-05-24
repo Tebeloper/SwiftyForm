@@ -8,14 +8,76 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    // An instance for Haptic Feedback Notifications
+    let hapticFeedback = UINotificationFeedbackGenerator()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        NavigationStack {
+            VStack {
+                Image("MainScreen")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+                    .cornerRadius(70)
+                
+                Text("Welcome to")
+                    .font(.largeTitle)
+                    .frame(alignment: .center)
+                
+                Text("SwiftyForm")
+                    .font(.system(size:50))
+                    .fontWeight(.black)
+                    .foregroundStyle(
+                        LinearGradient(colors: [.red,
+                                                .purple
+                                                
+                        ],
+                                       startPoint: .topLeading,
+                                       endPoint: .bottomTrailing)
+                    )
+                
+                Spacer()
+                
+                HStack {
+                    Button {
+                        print("register")
+                        hapticFeedback.notificationOccurred(.success)
+                    } label: {
+                        Text("Register")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    
+                    Text("|")
+                        .foregroundColor(.white)
+                        .bold()
+                        .font(.largeTitle)
+                    
+                    Button {
+                        print("login")
+                        hapticFeedback.notificationOccurred(.success)
+                    } label: {
+                        Text("Login")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                } // :HStack
+                .background(
+                    Capsule()
+                        .foregroundStyle(
+                            LinearGradient(colors: [.red,
+                                                    .purple,
+                            ],
+                                           startPoint: .topLeading,
+                                           endPoint: .bottomTrailing)
+                        )
+                )
+                .padding()
+            } // :VStack
+        } // :NavigationStack
     }
 }
 
