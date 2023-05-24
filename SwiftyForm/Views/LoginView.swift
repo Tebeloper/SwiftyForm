@@ -40,7 +40,7 @@ struct LoginView: View {
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
                             
-                            // MARK: - Unnecessary Button
+                            // Unnecessary Button
                             Button {
                                 isSecure.toggle()
                             } label: {
@@ -105,6 +105,8 @@ struct LoginView: View {
                         )
                         .padding()
                     } //: Form VStack
+                    
+                    // MARK: - Don't have an account?
                     HStack {
                         Text("Don't have an account?")
                         NavigationLink(destination: RegisterView()) {
