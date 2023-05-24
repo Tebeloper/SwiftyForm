@@ -95,8 +95,8 @@
 			children = (
 				CBAE4FD52A1E21D400C00323 /* Components */,
 				CBAD500B2A1E14510017411A /* MainView.swift */,
-				CBAE4FD62A1E22A500C00323 /* LoginView.swift */,
 				CBAE4FD82A1E22B100C00323 /* RegisterView.swift */,
+				CBAE4FD62A1E22A500C00323 /* LoginView.swift */,
 				CBAE4FDA2A1E231000C00323 /* BooksView.swift */,
 			);
 			path = Views;

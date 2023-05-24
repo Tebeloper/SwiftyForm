@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    @State private var showingSheet: Bool = false
+    
     // An instance for Haptic Feedback Notifications
     let hapticFeedback = UINotificationFeedbackGenerator()
     
@@ -41,7 +43,7 @@ struct MainView: View {
                 
                 HStack {
                     Button {
-                        print("register")
+                        showingSheet = true
                         hapticFeedback.notificationOccurred(.success)
                     } label: {
                         Text("Register")
@@ -49,22 +51,23 @@ struct MainView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
+                    .sheet(isPresented: $showingSheet) {
+                        RegisterView()
+                    }
                     
                     Text("|")
                         .foregroundColor(.white)
                         .bold()
                         .font(.largeTitle)
                     
-                    Button {
-                        print("login")
-                        hapticFeedback.notificationOccurred(.success)
-                    } label: {
+                    NavigationLink(destination: LoginView()) {
                         Text("Login")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .padding()
                     }
-                } // :HStack
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .padding()
+                    
+                } //:HStack
                 .background(
                     Capsule()
                         .foregroundStyle(
@@ -76,8 +79,8 @@ struct MainView: View {
                         )
                 )
                 .padding()
-            } // :VStack
-        } // :NavigationStack
+            } //:VStack
+        } //:NavigationStack
     }
 }
 
