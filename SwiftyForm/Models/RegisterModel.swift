@@ -27,7 +27,7 @@ class RegisterService {
         
         let registerCredentials = RegisterUser(username: username, password: password)
         
-        guard let url = URL(string: "http://localhost:3000/register") else {
+        guard let url = URL(string: "") else {
             completion(.failure(.NetworkError))
             return
         }

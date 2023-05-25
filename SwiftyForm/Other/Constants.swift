@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct C {
+    let registerEndpoint = "http://localhost:3000/register"
+    let loginEndpoint = "http://localhost:3000/login"
+}
