@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterView: View {
     
     @StateObject private var viewModel = RegisterViewViewModel()
+    @State private var passwordsMatch: Bool = true
     
     var body: some View {
         NavigationStack {
@@ -101,12 +102,18 @@ struct RegisterView: View {
                         }
                         .hidden()
                     }
+                    
+                    if !passwordsMatch {
+                        Text("Passwords don't match")
+                            .foregroundColor(.red)
+                    }
                 } //:Form VStack
                 
                 Spacer()
                 
                 // MARK: - Register Button Component
                 SFButton(title: "Register") {
+                    passwordsMatch = viewModel.password == viewModel.confirmedPassword
                     viewModel.validate()
                 }
                 

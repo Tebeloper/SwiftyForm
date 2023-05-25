@@ -19,6 +19,7 @@ class RegisterViewViewModel: ObservableObject {
         if password != confirmedPassword {
             borderColor = 0.5
             confirmedPassword = ""
+            password = ""
         } else {
             borderColor = 0
         }
