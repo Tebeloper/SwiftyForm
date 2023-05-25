@@ -20,6 +20,12 @@ struct RegisterView: View {
                     .scaledToFit()
                     .padding()
                 
+                Text("Hello World!")
+                    .font(.system(size: 50))
+                    .bold()
+                Text("We are glad to see you :)")
+                    .font(.subheadline)
+                
                 // MARK: - Form
                 VStack {
                     HStack {
@@ -48,14 +54,22 @@ struct RegisterView: View {
                                 .frame(width: 300)
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
-                                .border(.red, width: CGFloat(viewModel.borderColor))
+                            
+                            //making the border red with the same Corner Radius
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
+                                )
                         } else {
                             TextField("Password...", text: $viewModel.password)
                                 .padding()
                                 .frame(width: 300)
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
-                                .border(.red, width: CGFloat(viewModel.borderColor))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
+                                )
                         }
                         
                         Button {
@@ -74,8 +88,10 @@ struct RegisterView: View {
                             .frame(width: 300)
                             .background(Color.white.opacity(0.1))
                             .cornerRadius(10)
-                            .border(.red, width: CGFloat(viewModel.borderColor))
-                        
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
+                            )
                         // Unnecessary Button
                         Button {
                             viewModel.isSecure.toggle()

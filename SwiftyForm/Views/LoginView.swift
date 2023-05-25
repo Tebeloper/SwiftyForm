@@ -29,7 +29,7 @@ struct LoginView: View {
                         .bold()
                     Text("Welcome back you've been missed!")
                         .font(.subheadline)
-                                        
+                    
                     // MARK: - Form
                     VStack {
                         HStack {
@@ -85,7 +85,7 @@ struct LoginView: View {
                             print("Not functional yet...")
                         }
                         .padding()
-
+                        
                         Spacer()
                         
                         // MARK: - Log In Button Component

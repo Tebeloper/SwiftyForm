@@ -35,9 +35,11 @@ struct SFButton: View {
     }
 }
 
-//struct SFButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SFButton(title: "SFButton",
-//                 action: )
-//    }
-//}
+struct SFButton_Previews: PreviewProvider {
+    static var previews: some View {
+        SFButton(title: "SFButton",
+                 action: {
+            print("SFButton")
+        })
+    }
+}
