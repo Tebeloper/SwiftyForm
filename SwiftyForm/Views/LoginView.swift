@@ -19,7 +19,7 @@ struct LoginView: View {
             ZStack {
                 VStack {
                     // MARK: - Image && Text
-                    Image("LoginScreen 2")
+                    Image("LoginScreen")
                         .resizable()
                         .scaledToFit()
                         .padding()
@@ -36,6 +36,7 @@ struct LoginView: View {
                             Image(systemName: "person")
                             TextField("Username...", text: $username)
                                 .padding()
+                                .autocorrectionDisabled()
                                 .frame(width: 300)
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
@@ -55,6 +56,7 @@ struct LoginView: View {
                             if isSecure {
                                 SecureField("Password...", text: $password)
                                     .padding()
+                                    .autocorrectionDisabled()
                                     .frame(width: 300)
                                     .background(Color.white.opacity(0.1))
                                     .cornerRadius(10)
@@ -62,6 +64,7 @@ struct LoginView: View {
                             } else {
                                 TextField("Password...", text: $password)
                                     .padding()
+                                    .autocorrectionDisabled()
                                     .frame(width: 300)
                                     .background(Color.white.opacity(0.1))
                                     .cornerRadius(10)
@@ -78,37 +81,23 @@ struct LoginView: View {
                         } //:HStack
                         
                         // MARK: - Forgot Password
-                        HStack {
-                            Spacer()
-                            Button("Forgot Password") {
-                                print("Not functional yet...")
-                            }
-                        } //: Forgot Password HStack
-                        
-                        // MARK: - Log In Button
-                        Button("Log In") {
-                            print("Log In")
+                        Button("Forgot Password") {
+                            print("Not functional yet...")
                         }
-                        .foregroundColor(.white)
                         .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 150)
-                                .foregroundStyle(
-                                    LinearGradient(colors: [.orange,
-                                                            .gray,
-                                                            .blue
-                                    ],
-                                                   startPoint: .topLeading,
-                                                   endPoint: .bottomTrailing)
-                                )
-                        )
-                        .padding()
+
+                        Spacer()
+                        
+                        // MARK: - Log In Button Component
+                        SFButton(title: "Log In") {
+                            print("fewfwewe")
+                        }
                     } //: Form VStack
                     
                     // MARK: - Don't have an account?
                     HStack {
                         Text("Don't have an account?")
+                        
                         NavigationLink(destination: RegisterView()) {
                             Text("Register")
                         }

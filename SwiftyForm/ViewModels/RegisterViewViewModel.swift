@@ -17,8 +17,8 @@ class RegisterViewViewModel: ObservableObject {
     
     func validate() {
         if password != confirmedPassword {
-            
             borderColor = 0.5
+            confirmedPassword = ""
         } else {
             borderColor = 0
         }

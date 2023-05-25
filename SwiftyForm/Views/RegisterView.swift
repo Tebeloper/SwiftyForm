@@ -15,62 +15,84 @@ struct RegisterView: View {
         NavigationStack {
             VStack {
                 
-                // MARK: - Form
-                TextField("Username...", text: $viewModel.username)
+                Image("RegisterScreen")
+                    .resizable()
+                    .scaledToFit()
                     .padding()
-                    .frame(width: 300)
-                    .background(Color.white.opacity(0.1))
-                    .cornerRadius(10)
-                if viewModel.isSecure {
-                    SecureField("Password...", text: $viewModel.password)
-                        .padding()
-                        .frame(width: 300)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(viewModel.borderColor))
-                    
-                    SecureField("Confirm Password...", text: $viewModel.confirmedPassword)
-                        .padding()
-                        .frame(width: 300)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(viewModel.borderColor))
-                } else {
-                    TextField("Password...", text: $viewModel.password)
-                        .padding()
-                        .frame(width: 300)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(viewModel.borderColor))
-                    
-                    TextField("Confirm Password...", text: $viewModel.confirmedPassword)
-                        .padding()
-                        .frame(width: 300)
-                        .background(Color.white.opacity(0.1))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(viewModel.borderColor))
-                }
                 
-                // MARK: - Register Button
-                Button("Register") {
-                    print("Register")
+                // MARK: - Form
+                VStack {
+                    HStack {
+                        Image(systemName: "person")
+                        TextField("Username...", text: $viewModel.username)
+                            .padding()
+                            .frame(width: 300)
+                            .background(Color.white.opacity(0.1))
+                            .cornerRadius(10)
+                        
+                        // Unnecessary Button
+                        Button {
+                            viewModel.isSecure.toggle()
+                        } label: {
+                            Image(systemName: "eye")
+                                .foregroundColor(.black)
+                        }
+                        .hidden()
+                        
+                    } //:HStack
+                    HStack {
+                        Image(systemName: "lock")
+                        if viewModel.isSecure {
+                            SecureField("Password...", text: $viewModel.password)
+                                .padding()
+                                .frame(width: 300)
+                                .background(Color.white.opacity(0.1))
+                                .cornerRadius(10)
+                                .border(.red, width: CGFloat(viewModel.borderColor))
+                        } else {
+                            TextField("Password...", text: $viewModel.password)
+                                .padding()
+                                .frame(width: 300)
+                                .background(Color.white.opacity(0.1))
+                                .cornerRadius(10)
+                                .border(.red, width: CGFloat(viewModel.borderColor))
+                        }
+                        
+                        Button {
+                            viewModel.isSecure.toggle()
+                        } label: {
+                            Image(systemName: viewModel.isSecure ? "eye.slash" : "eye")
+                                .foregroundColor(.white)
+                        }
+                        .opacity(viewModel.password.isEmpty ? 0 : 1)
+                    } //:HStack
+                    
+                    HStack {
+                        Image(systemName: "lock")
+                        SecureField("Confirm Password...", text: $viewModel.confirmedPassword)
+                            .padding()
+                            .frame(width: 300)
+                            .background(Color.white.opacity(0.1))
+                            .cornerRadius(10)
+                            .border(.red, width: CGFloat(viewModel.borderColor))
+                        
+                        // Unnecessary Button
+                        Button {
+                            viewModel.isSecure.toggle()
+                        } label: {
+                            Image(systemName: "eye")
+                                .foregroundColor(.black)
+                        }
+                        .hidden()
+                    }
+                } //:Form VStack
+                
+                Spacer()
+                
+                // MARK: - Register Button Component
+                SFButton(title: "Register") {
                     viewModel.validate()
                 }
-                .foregroundColor(.white)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 150)
-                        .foregroundStyle(
-                            LinearGradient(colors: [.blue,
-                                                    .gray,
-                                                    .orange
-                            ],
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                        )
-                )
-                .padding()
                 
                 // MARK: - Already have an account?
                 HStack {
@@ -90,3 +112,4 @@ struct RegisterView_Previews: PreviewProvider {
         RegisterView()
     }
 }
+

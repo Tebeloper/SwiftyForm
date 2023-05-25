@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB8A809B2A1F4FE700C697F9 /* SFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A809A2A1F4FE700C697F9 /* SFButton.swift */; };
 		CBAD500A2A1E14510017411A /* SwiftyFormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD50092A1E14510017411A /* SwiftyFormApp.swift */; };
 		CBAD500C2A1E14510017411A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAD500B2A1E14510017411A /* MainView.swift */; };
 		CBAD500E2A1E14520017411A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAD500D2A1E14520017411A /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB8A809A2A1F4FE700C697F9 /* SFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFButton.swift; sourceTree = "<group>"; };
 		CBAD50062A1E14510017411A /* SwiftyForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAD50092A1E14510017411A /* SwiftyFormApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyFormApp.swift; sourceTree = "<group>"; };
 		CBAD500B2A1E14510017411A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		CBAE4FD52A1E21D400C00323 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CB8A809A2A1F4FE700C697F9 /* SFButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				CBAE4FD72A1E22A500C00323 /* LoginView.swift in Sources */,
 				CBAE4FE02A1E234D00C00323 /* LoginViewViewModel.swift in Sources */,
 				CBAE4FD92A1E22B100C00323 /* RegisterView.swift in Sources */,
+				CB8A809B2A1F4FE700C697F9 /* SFButton.swift in Sources */,
 				CBAE4FDE2A1E234100C00323 /* RegisterViewViewModel.swift in Sources */,
 				CBAE4FDB2A1E231000C00323 /* BooksView.swift in Sources */,
 				CBAD500C2A1E14510017411A /* MainView.swift in Sources */,
