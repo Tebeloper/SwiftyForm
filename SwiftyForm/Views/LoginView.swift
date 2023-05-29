@@ -9,10 +9,9 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var isSecure: Bool = true
-    @State private var borderColor: CGFloat = 0
+    
+    
+    @StateObject private var viewModel = LoginViewViewModel()
     
     var body: some View {
         NavigationStack {
@@ -34,16 +33,17 @@ struct LoginView: View {
                     VStack {
                         HStack {
                             Image(systemName: "person")
-                            TextField("Username...", text: $username)
+                            TextField("Username...", text: $viewModel.username)
                                 .padding()
                                 .autocorrectionDisabled()
                                 .frame(width: 300)
                                 .background(Color.white.opacity(0.1))
                                 .cornerRadius(10)
+                                .autocapitalization(.none)
                             
                             // Unnecessary Button
                             Button {
-                                isSecure.toggle()
+                                viewModel.isSecure.toggle()
                             } label: {
                                 Image(systemName: "eye")
                                     .foregroundColor(.black)
@@ -53,32 +53,37 @@ struct LoginView: View {
                         } //:HStack
                         HStack {
                             Image(systemName: "key")
-                            if isSecure {
-                                SecureField("Password...", text: $password)
+                            if viewModel.isSecure {
+                                SecureField("Password...", text: $viewModel.password)
                                     .padding()
                                     .autocorrectionDisabled()
                                     .frame(width: 300)
                                     .background(Color.white.opacity(0.1))
                                     .cornerRadius(10)
-                                    .border(.red, width: CGFloat(borderColor))
+                                    .border(.red, width: CGFloat(viewModel.borderColor))
                             } else {
-                                TextField("Password...", text: $password)
+                                TextField("Password...", text: $viewModel.password)
                                     .padding()
                                     .autocorrectionDisabled()
                                     .frame(width: 300)
                                     .background(Color.white.opacity(0.1))
                                     .cornerRadius(10)
-                                    .border(.red, width: CGFloat(borderColor))
+                                    .border(.red, width: CGFloat(viewModel.borderColor))
                             }
                             
                             Button {
-                                isSecure.toggle()
+                                viewModel.isSecure.toggle()
                             } label: {
-                                Image(systemName: isSecure ? "eye.slash" : "eye")
+                                Image(systemName: viewModel.isSecure ? "eye.slash" : "eye")
                                     .foregroundColor(.white)
                             }
-                            .opacity(password.isEmpty ? 0 : 1)
+                            .opacity(viewModel.password.isEmpty ? 0 : 1)
                         } //:HStack
+                        
+                        if viewModel.isAuthenticated == false {
+                            Text("The Username or Password you entered are incorrect")
+                                .foregroundColor(.red)
+                        }
                         
                         // MARK: - Forgot Password
                         Button("Forgot Password") {
@@ -90,7 +95,7 @@ struct LoginView: View {
                         
                         // MARK: - Log In Button Component
                         SFButton(title: "Log In") {
-                            print("fewfwewe")
+                            viewModel.performLogin()
                         }
                     } //: Form VStack
                     

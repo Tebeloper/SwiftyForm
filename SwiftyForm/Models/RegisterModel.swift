@@ -1,5 +1,5 @@
 //
-//  Register.swift
+//  RegisterModel.swift
 //  SwiftyForm
 //
 //  Created by Dimitrios Gkarlemos on 25/05/2023.
@@ -7,28 +7,18 @@
 
 import Foundation
 
-enum AuthenticationError: Error {
-    case invalidCredentials
-    case NetworkError
-}
-
-struct RegisterUser: Codable {
+struct RegisterUser:  Codable {
     let username: String
     let password: String
 }
 
-struct RegisterResponse: Codable {
-    
-}
-
 class RegisterService {
     
-    func performRegister(username: String, password: String, completion: @escaping (Result<RegisterResponse, AuthenticationError>) -> Void) {
+    func performRegister(username: String, password: String) {
         
         let registerCredentials = RegisterUser(username: username, password: password)
         
-        guard let url = URL(string: "") else {
-            completion(.failure(.NetworkError))
+        guard let url = URL(string: "http://localhost:3000/register") else {
             return
         }
         
@@ -45,24 +35,13 @@ class RegisterService {
             
             switch httpResponse.statusCode {
             case 200:
+
+                print("User Created")
                 
-                guard let data = data, error == nil else {
-                    completion(.failure(.invalidCredentials))
-                    return
-                }
-                
-                guard let registerResponse = try? JSONDecoder().decode(RegisterResponse.self, from: data) else {
-                    completion(.failure(.NetworkError))
-                    return
-                }
-                
-                completion(.success(registerResponse))
-                
-            case 401:
-                completion(.failure(.invalidCredentials))
             default:
-                completion(.failure(.NetworkError))
+                print("Error: \(String(describing: error))")
             }
         }.resume()
     }
 }
+

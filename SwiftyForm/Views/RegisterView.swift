@@ -115,6 +115,13 @@ struct RegisterView: View {
                     
                     viewModel.PerformRegister()
                 }
+                .alert(isPresented: $viewModel.showAlert) {
+                    Alert(title: Text("User successfully created!"),
+                          message: Text("Please Log In"),
+                          dismissButton: .default(Text("OK"), action: {
+                    })
+                    )
+                }
                 
                 // MARK: - Already have an account?
                 HStack {
