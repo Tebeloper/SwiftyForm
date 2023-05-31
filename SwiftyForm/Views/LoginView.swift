@@ -9,14 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     
-    
-    
     @StateObject private var viewModel = LoginViewViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 VStack {
+                    
                     // MARK: - Image && Text
                     Image("LoginScreen")
                         .resizable()
@@ -31,15 +30,12 @@ struct LoginView: View {
                     
                     // MARK: - Form
                     VStack {
+                        
+                        // Username HStack
                         HStack {
                             Image(systemName: "person")
                             TextField("Username...", text: $viewModel.username)
-                                .padding()
-                                .autocorrectionDisabled()
-                                .frame(width: 300)
-                                .background(Color.white.opacity(0.1))
-                                .cornerRadius(10)
-                                .autocapitalization(.none)
+                                .styleLoginViewTextField()
                             
                             // Unnecessary Button
                             Button {
@@ -50,35 +46,31 @@ struct LoginView: View {
                             }
                             .hidden()
                             
-                        } //:HStack
+                        } //:Username HStack
+                        
+                        // Password HStack
                         HStack {
                             Image(systemName: "key")
                             if viewModel.isSecure {
                                 SecureField("Password...", text: $viewModel.password)
-                                    .padding()
-                                    .autocorrectionDisabled()
-                                    .frame(width: 300)
-                                    .background(Color.white.opacity(0.1))
-                                    .cornerRadius(10)
+                                    .styleLoginViewSecureField()
                                     .border(.red, width: CGFloat(viewModel.borderColor))
+                                    
                             } else {
                                 TextField("Password...", text: $viewModel.password)
-                                    .padding()
-                                    .autocorrectionDisabled()
-                                    .frame(width: 300)
-                                    .background(Color.white.opacity(0.1))
-                                    .cornerRadius(10)
+                                    .styleLoginViewTextField()
                                     .border(.red, width: CGFloat(viewModel.borderColor))
                             }
                             
                             Button {
                                 viewModel.isSecure.toggle()
+                                
                             } label: {
                                 Image(systemName: viewModel.isSecure ? "eye.slash" : "eye")
                                     .foregroundColor(.white)
                             }
                             .opacity(viewModel.password.isEmpty ? 0 : 1)
-                        } //:HStack
+                        } //:Password HStack
                         
                         if viewModel.isAuthenticated == false {
                             Text("The Username or Password you entered are incorrect")
@@ -94,8 +86,10 @@ struct LoginView: View {
                         Spacer()
                         
                         // MARK: - Log In Button Component
-                        SFButton(title: "Log In") {
-                            viewModel.performLogin()
+                        NavigationLink(destination: BooksView()) {
+                            SFButton(title: "Log In") {
+                                viewModel.performLogin()
+                            }
                         }
                     } //: Form VStack
                     
@@ -106,7 +100,7 @@ struct LoginView: View {
                         NavigationLink(destination: RegisterView()) {
                             Text("Register")
                         }
-                    } // :HStack
+                    } // :Don't have an account? HStack
                 } //: Main VStack
             } //:ZStack
         } //:NavigationStack

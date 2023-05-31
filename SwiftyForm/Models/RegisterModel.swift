@@ -29,18 +29,12 @@ class RegisterService {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
-            guard let httpResponse = response as? HTTPURLResponse else {
+            guard let data = data, error == nil else {
                 return
             }
             
-            switch httpResponse.statusCode {
-            case 200:
-
-                print("User Created")
-                
-            default:
-                print("Error: \(String(describing: error))")
-            }
+            print(String(data: data, encoding: .utf8)!)
+            
         }.resume()
     }
 }

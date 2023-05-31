@@ -28,8 +28,9 @@ class LoginViewViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
-                    print("Logged In")
                 }
+                
+                dump(loginResponse)
                 
             case .failure(let error):
                 DispatchQueue.main.async {

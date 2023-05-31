@@ -7,3 +7,16 @@
 
 import Foundation
 
+class BooksViewViewModel: ObservableObject {
+    
+    func getBooks() {
+        
+        let defaults = UserDefaults.standard
+        
+        guard let accessToken = defaults.string(forKey: "token") else {
+            return
+        }
+        
+        BooksService().getBooks(accessToken: accessToken)
+    }
+}

@@ -12,9 +12,10 @@ struct RegisterView: View {
     @StateObject private var viewModel = RegisterViewViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 
+                // MARK: - Image && Text
                 Image("RegisterScreen")
                     .resizable()
                     .scaledToFit()
@@ -28,32 +29,30 @@ struct RegisterView: View {
                 
                 // MARK: - Form
                 VStack {
+                    
+                    // Username HStack
                     HStack {
                         Image(systemName: "person")
                         TextField("Username...", text: $viewModel.username)
-                            .padding()
-                            .frame(width: 300)
-                            .background(Color.white.opacity(0.1))
-                            .cornerRadius(10)
+                            .styleRegisterViewTextField()
                         
-                        // Unnecessary Button
+                        // useless button
                         Button {
-                            viewModel.isSecure.toggle()
+                            viewModel.passwordIsSecure.toggle()
                         } label: {
-                            Image(systemName: "eye")
+                            Image(systemName: viewModel.passwordIsSecure ? "eye.slash" : "eye")
                                 .foregroundColor(.black)
                         }
                         .hidden()
                         
-                    } //:HStack
+                    } //:Username HStack
+                    
+                    // Password HStack
                     HStack {
                         Image(systemName: "lock")
-                        if viewModel.isSecure {
+                        if viewModel.passwordIsSecure {
                             SecureField("Password...", text: $viewModel.password)
-                                .padding()
-                                .frame(width: 300)
-                                .background(Color.white.opacity(0.1))
-                                .cornerRadius(10)
+                                .styleRegisterViewSecureField()
                             
                             //making the border red with the same Corner Radius
                                 .overlay(
@@ -62,10 +61,7 @@ struct RegisterView: View {
                                 )
                         } else {
                             TextField("Password...", text: $viewModel.password)
-                                .padding()
-                                .frame(width: 300)
-                                .background(Color.white.opacity(0.1))
-                                .cornerRadius(10)
+                                .styleRegisterViewTextField()
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
@@ -73,46 +69,58 @@ struct RegisterView: View {
                         }
                         
                         Button {
-                            viewModel.isSecure.toggle()
+                            viewModel.passwordIsSecure.toggle()
                         } label: {
-                            Image(systemName: viewModel.isSecure ? "eye.slash" : "eye")
+                            Image(systemName: viewModel.passwordIsSecure ? "eye.slash" : "eye")
                                 .foregroundColor(.white)
                         }
                         .opacity(viewModel.password.isEmpty ? 0 : 1)
-                    } //:HStack
+                    } //:Password HStack
                     
+                    // Confirmed Password HStack
                     HStack {
                         Image(systemName: "lock")
-                        SecureField("Confirm Password...", text: $viewModel.confirmedPassword)
-                            .padding()
-                            .frame(width: 300)
-                            .background(Color.white.opacity(0.1))
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
-                            )
-                        // Unnecessary Button
-                        Button {
-                            viewModel.isSecure.toggle()
-                        } label: {
-                            Image(systemName: "eye")
-                                .foregroundColor(.black)
+                        if viewModel.confirmedPasswordIsSecure {
+                            SecureField("Confirm Password...", text: $viewModel.confirmedPassword)
+                                .styleRegisterViewSecureField()
+                            
+                            //making the border red with the same Corner Radius
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
+                                )
+                        } else {
+                            TextField("Password...", text: $viewModel.confirmedPassword)
+                                .styleRegisterViewTextField()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.red, lineWidth: CGFloat(viewModel.borderColor))
+                                )
                         }
-                        .hidden()
-                    }
+                        
+                        Button {
+                            viewModel.confirmedPasswordIsSecure.toggle()
+                        } label: {
+                            Image(systemName: viewModel.confirmedPasswordIsSecure ? "eye.slash" : "eye")
+                                .foregroundColor(.white)
+                        }
+                        .opacity(viewModel.confirmedPassword.isEmpty ? 0 : 1)
+                    } //:Confirmed Password HStack
                     
                     if !viewModel.passwordsMatch {
                         Text("Passwords don't match")
                             .foregroundColor(.red)
                     }
+                    
+                    //                    if !viewModel.isValidPassword {
+                    //                        Text("Your Password must contain at least 1 Uppercase, 1 digit, 1 lowercase, 1 symbol and it must be at least 8 characters.")
+                    //                    }
                 } //:Form VStack
                 
                 Spacer()
                 
                 // MARK: - Register Button Component
                 SFButton(title: "Register") {
-                    
                     viewModel.PerformRegister()
                 }
                 .alert(isPresented: $viewModel.showAlert) {
@@ -129,7 +137,7 @@ struct RegisterView: View {
                     NavigationLink(destination: LoginView()) {
                         Text("Log In")
                     }
-                } //:HStack
+                } //:Already have an account? HStack
             } //: Main VStack
         } //:NavigationStack
         .navigationBarBackButtonHidden()

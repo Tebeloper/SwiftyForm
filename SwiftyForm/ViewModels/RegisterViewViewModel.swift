@@ -14,7 +14,8 @@ class RegisterViewViewModel: ObservableObject {
     @Published var confirmedPassword: String = ""
     @Published var borderColor: CGFloat = 0
     
-    @Published var isSecure: Bool = true
+    @Published var passwordIsSecure: Bool = true
+    @Published var confirmedPasswordIsSecure: Bool = true
     @Published var passwordsMatch: Bool = true
     @Published var showAlert: Bool = false
     
@@ -27,12 +28,20 @@ class RegisterViewViewModel: ObservableObject {
             passwordsMatch = false
         } else {
             passwordsMatch = true
+            showAlert = true
             RegisterService().performRegister(username: username, password: password)
+            username = ""
+            password = ""
+            confirmedPassword = ""
             borderColor = 0
-            
-            DispatchQueue.main.async {
-                self.showAlert = true
-            }
         }
     }
+    
+    // Regx
+//    func isValidPassword(password: String) -> Bool {
+//        let password = password.trimmingCharacters(in: .whitespaces)
+//        let passwordRegx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
+//        let passwordCheck = NSPredicate(format: "SELF MATCHES %@",passwordRegx)
+//        return passwordCheck.evaluate(with: password)
+//    }
 }
