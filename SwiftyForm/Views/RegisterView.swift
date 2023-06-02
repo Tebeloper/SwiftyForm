@@ -108,7 +108,7 @@ struct RegisterView: View {
                     } //:Confirmed Password HStack
                     
                     if !viewModel.passwordsMatch {
-                        Text("Passwords don't match")
+                        Text(viewModel.errorMessage)
                             .foregroundColor(.red)
                     }
                     

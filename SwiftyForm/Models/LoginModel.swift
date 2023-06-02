@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthenticationError: Error {
+enum LoginAuthenticationError: Error {
     case invalidCredentials
     case custom(errorMessage: String)
 }
@@ -25,12 +25,12 @@ struct LoginResponse: Codable {
 
 class LoginService {
     
-    func performLogin(username: String, password: String, completion: @escaping (Result<LoginResponse, AuthenticationError>) -> Void) {
+    func performLogin(username: String, password: String, completion: @escaping (Result<LoginResponse, LoginAuthenticationError>) -> Void) {
         
         let loginCredentials = LoginUser(username: username, password: password)
         
         guard let url = URL(string: "http://localhost:3000/login") else {
-            completion(.failure(.custom(errorMessage: "Error occurred on EndPoint")))
+            completion(.failure(.custom(errorMessage: "Error occurred on EndPoint!")))
             return
         }
         

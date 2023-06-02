@@ -17,6 +17,13 @@ class BooksViewViewModel: ObservableObject {
             return
         }
         
-        BooksService().getBooks(accessToken: accessToken)
+        BooksService().getBooks(accessToken: accessToken) { result in
+            switch result {
+            case .success(let books):
+                dump(books)
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+            }
+        }
     }
 }

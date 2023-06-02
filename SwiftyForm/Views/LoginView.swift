@@ -55,7 +55,7 @@ struct LoginView: View {
                                 SecureField("Password...", text: $viewModel.password)
                                     .styleLoginViewSecureField()
                                     .border(.red, width: CGFloat(viewModel.borderColor))
-                                    
+                                
                             } else {
                                 TextField("Password...", text: $viewModel.password)
                                     .styleLoginViewTextField()
@@ -72,10 +72,9 @@ struct LoginView: View {
                             .opacity(viewModel.password.isEmpty ? 0 : 1)
                         } //:Password HStack
                         
-                        if viewModel.isAuthenticated == false {
-                            Text("The Username or Password you entered are incorrect")
-                                .foregroundColor(.red)
-                        }
+                        Text(viewModel.isAuthenticated ? "" : "The Username or Password you entered are incorrect")
+                            .foregroundColor(.red)
+                            .frame(alignment: .center)
                         
                         // MARK: - Forgot Password
                         Button("Forgot Password") {

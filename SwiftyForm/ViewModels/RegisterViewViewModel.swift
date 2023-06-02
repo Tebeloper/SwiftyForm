@@ -13,6 +13,7 @@ class RegisterViewViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var confirmedPassword: String = ""
     @Published var borderColor: CGFloat = 0
+    @Published var errorMessage: String = ""
     
     @Published var passwordIsSecure: Bool = true
     @Published var confirmedPasswordIsSecure: Bool = true
@@ -21,27 +22,43 @@ class RegisterViewViewModel: ObservableObject {
     
     func PerformRegister() {
         
-        if password != confirmedPassword {
+        guard !username.trimmingCharacters(in: .whitespaces).isEmpty,
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              !confirmedPassword.trimmingCharacters(in: .whitespaces).isEmpty else {
             borderColor = 0.5
             confirmedPassword = ""
             password = ""
             passwordsMatch = false
-        } else {
+            
+            errorMessage = "Please fill in all fields."
+            
+            return
+        }
+        
+        guard password == confirmedPassword else {
+            passwordsMatch = false
+            borderColor = 0.5
+            errorMessage = "Please make sure your passwords match."
+            return
+        }
+        
+        guard password.count >= 8,
+              confirmedPassword.count >= 8 else {
+            borderColor = 0.5
+            passwordsMatch = false
+            errorMessage = "Please enter a stronger Password!"
+            return
+        }
+        
+        RegisterService().performRegister(username: username, password: password)
+
             passwordsMatch = true
             showAlert = true
-            RegisterService().performRegister(username: username, password: password)
+        
+            borderColor = 0
             username = ""
             password = ""
             confirmedPassword = ""
-            borderColor = 0
-        }
+        
     }
-    
-    // Regx
-//    func isValidPassword(password: String) -> Bool {
-//        let password = password.trimmingCharacters(in: .whitespaces)
-//        let passwordRegx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
-//        let passwordCheck = NSPredicate(format: "SELF MATCHES %@",passwordRegx)
-//        return passwordCheck.evaluate(with: password)
-//    }
 }

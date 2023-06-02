@@ -127,9 +127,9 @@
 		CBAD501A2A1E14820017411A /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				CBEEA4102A2751400024FB67 /* Extensions */,
 				CBAD50092A1E14510017411A /* SwiftyFormApp.swift */,
 				CBAD500D2A1E14520017411A /* Assets.xcassets */,
+				CBEEA4102A2751400024FB67 /* Extensions */,
 			);
 			path = Other;
 			sourceTree = "<group>";

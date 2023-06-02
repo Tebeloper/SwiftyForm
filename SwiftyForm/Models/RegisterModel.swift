@@ -19,6 +19,7 @@ class RegisterService {
         let registerCredentials = RegisterUser(username: username, password: password)
         
         guard let url = URL(string: "http://localhost:3000/register") else {
+            print("Error occurred on EndPoint!")
             return
         }
         

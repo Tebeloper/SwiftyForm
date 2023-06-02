@@ -30,13 +30,12 @@ class LoginViewViewModel: ObservableObject {
                     self.isAuthenticated = true
                 }
                 
-                dump(loginResponse)
-                
             case .failure(let error):
+                
                 DispatchQueue.main.async {
                     self.isAuthenticated = false
+                    print("Error: \(error)")
                 }
-                print("Error: \(error)")
             }
         }
     }
