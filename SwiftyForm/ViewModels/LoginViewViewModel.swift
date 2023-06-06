@@ -13,6 +13,7 @@ class LoginViewViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var isSecure: Bool = true
     @Published var borderColor: CGFloat = 0
+    @Published var readyToNavigate: Bool = false
     
     @Published var isAuthenticated: Bool = true
     
@@ -28,8 +29,9 @@ class LoginViewViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
+                    self.readyToNavigate = true
                 }
-                
+                                
             case .failure(let error):
                 
                 DispatchQueue.main.async {

@@ -19,6 +19,7 @@ class RegisterViewViewModel: ObservableObject {
     @Published var confirmedPasswordIsSecure: Bool = true
     @Published var passwordsMatch: Bool = true
     @Published var showAlert: Bool = false
+    @Published var isPasswordValid: Bool = true
     
     func PerformRegister() {
         
@@ -36,14 +37,12 @@ class RegisterViewViewModel: ObservableObject {
         }
         
         guard password == confirmedPassword else {
-            passwordsMatch = false
             borderColor = 0.5
-            errorMessage = "Please make sure your passwords match."
+            errorMessage = "Passwords don't match."
             return
         }
-        
-        guard password.count >= 8,
-              confirmedPassword.count >= 8 else {
+                
+        guard password.count >= 8 else {
             borderColor = 0.5
             passwordsMatch = false
             errorMessage = "Please enter a stronger Password!"
@@ -51,7 +50,7 @@ class RegisterViewViewModel: ObservableObject {
         }
         
         RegisterService().performRegister(username: username, password: password)
-
+        
             passwordsMatch = true
             showAlert = true
         
@@ -61,4 +60,18 @@ class RegisterViewViewModel: ObservableObject {
             confirmedPassword = ""
         
     }
+
+        //Regx
+//    func isValidPassword() -> Bool {
+//        // least one uppercase,
+//        // least one digit
+//        // least one lowercase
+//        // least one symbol
+//        //  min 8 characters total
+//        let password = password.trimmingCharacters(in: CharacterSet.whitespaces)
+//        let passwordRegx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
+//        let passwordCheck = NSPredicate(format: "SELF MATCHES %@",passwordRegx)
+//        return passwordCheck.evaluate(with: password)
+//
+//    }
 }

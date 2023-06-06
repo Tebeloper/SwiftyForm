@@ -107,14 +107,9 @@ struct RegisterView: View {
                         .opacity(viewModel.confirmedPassword.isEmpty ? 0 : 1)
                     } //:Confirmed Password HStack
                     
-                    if !viewModel.passwordsMatch {
-                        Text(viewModel.errorMessage)
-                            .foregroundColor(.red)
-                    }
-                    
-                    //                    if !viewModel.isValidPassword {
-                    //                        Text("Your Password must contain at least 1 Uppercase, 1 digit, 1 lowercase, 1 symbol and it must be at least 8 characters.")
-                    //                    }
+                    Text(viewModel.passwordsMatch ? "" : viewModel.errorMessage)
+                        .foregroundColor(.red)
+                                        
                 } //:Form VStack
                 
                 Spacer()

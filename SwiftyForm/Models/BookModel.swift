@@ -59,9 +59,10 @@ class BooksService {
             
             switch httpResponse.statusCode {
             case 401:
-                dump("dump")
+                print("dump")
             default:
-                dump(String(data: data, encoding: .utf8))
+                print("Successfully got the books!")
+                dump(books)
             }
         }.resume()
     }

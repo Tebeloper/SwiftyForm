@@ -20,7 +20,7 @@ class BooksViewViewModel: ObservableObject {
         BooksService().getBooks(accessToken: accessToken) { result in
             switch result {
             case .success(let books):
-                dump(books)
+                print("Successfully got the books: \(books)")
             case .failure(let error):
                 print("error: \(error.localizedDescription)")
             }
