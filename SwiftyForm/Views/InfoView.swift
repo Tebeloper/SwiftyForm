@@ -20,10 +20,34 @@ struct InfoView: View {
             Text("iOS Developer")
                 .font(.largeTitle)
             
-            HStack {
-                Image("GitHub")
-            }
+            HStack(spacing: 16) {
+                Image("linkedin")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                Image("github")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                Image("twitter")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                Image("reddit")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+            } //:HStack
             
+            Spacer()
+            
+            HStack{
+                Text("Thank You!")
+                    .foregroundColor(Color("myColor"))
+                    .font(.largeTitle)
+                Text("❤️")
+                    .font(.largeTitle)
+            } //:HStack
             Spacer()
         } //:VStack
     }
