@@ -35,7 +35,7 @@ struct RegisterView: View {
                         Image(systemName: "person")
                         TextField("Username...", text: $viewModel.username)
                             .styleRegisterViewTextField()
-                        
+                                                
                         // useless button
                         Button {
                             viewModel.passwordIsSecure.toggle()

@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-import Lottie
 
 struct MainView: View {
     
-    @State private var showingSheet: Bool = false
+    @State private var showingRegisterSheet: Bool = false
+    @State private var showingLoginSheet: Bool = false
+
     
     // An instance for Haptic Feedback Notifications
     let hapticFeedback = UINotificationFeedbackGenerator()
@@ -18,23 +19,30 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image("MainScreen")
+                Image(systemName: "person")
                     .resizable()
                     .scaledToFit()
-                    .padding()
-                    .cornerRadius(70)
+                    .padding(100)
+                    .foregroundStyle(
+                        LinearGradient(colors: [.blue,
+                                                .gray,
+                                                .orange
+                        ],
+                                       startPoint: .topLeading,
+                                       endPoint: .bottomTrailing)
+                    )
                 
                 Text("Welcome to")
                     .font(.largeTitle)
                     .frame(alignment: .center)
                 
                 Text("SwiftyForm")
-                    .font(.system(size:50))
+                    .font(.largeTitle)
                     .fontWeight(.black)
                     .foregroundStyle(
-                        LinearGradient(colors: [.red,
-                                                .purple
-                                                
+                        LinearGradient(colors: [.blue,
+                                                .gray,
+                                                .orange
                         ],
                                        startPoint: .topLeading,
                                        endPoint: .bottomTrailing)
@@ -44,7 +52,7 @@ struct MainView: View {
                 
                 HStack {
                     Button {
-                        showingSheet = true
+                        showingRegisterSheet = true
                         hapticFeedback.notificationOccurred(.success)
                     } label: {
                         Text("Register")
@@ -52,34 +60,43 @@ struct MainView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
-                    .sheet(isPresented: $showingSheet) {
+                    .sheet(isPresented: $showingRegisterSheet) {
                         RegisterView()
                     }
-                    
+
                     Text("|")
                         .foregroundColor(.white)
                         .bold()
                         .font(.largeTitle)
-                    
-                    NavigationLink(destination: LoginView()) {
+
+                    Button {
+                        showingLoginSheet = true
+                        hapticFeedback.notificationOccurred(.success)
+                    } label: {
                         Text("Login")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .padding()
                     }
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding()
-                    
+                    .sheet(isPresented: $showingLoginSheet) {
+                        LoginView()
+                    }
+
                 } //:HStack
+                .padding()
                 .background(
                     Capsule()
                         .foregroundStyle(
-                            LinearGradient(colors: [.red,
-                                                    .purple,
+                            LinearGradient(colors: [.blue,
+                                                    .gray,
+                                                    .orange
                             ],
                                            startPoint: .topLeading,
                                            endPoint: .bottomTrailing)
                         )
                 )
                 .padding()
+                
             } //:VStack
         } //:NavigationStack
     }

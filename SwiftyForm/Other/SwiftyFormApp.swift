@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftyFormApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            TabViews()
         }
     }
 }
