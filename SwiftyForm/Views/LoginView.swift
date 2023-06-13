@@ -85,7 +85,7 @@ struct LoginView: View {
                         Spacer()
                         
                         // MARK: - Log In Button Component
-                        NavigationLink(destination: BooksView(), isActive: $viewModel.isAuthenticated) {
+                        NavigationLink(destination: BooksView(), isActive: $viewModel.readyToNavigate) {
                             SFButton(title: "Login") {
                                 viewModel.performLogin()
                             }

@@ -27,6 +27,7 @@ class RegisterService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONEncoder().encode(registerCredentials)
+        
     }
 }
 

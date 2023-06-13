@@ -33,6 +33,7 @@ struct BooksView: View {
         .onAppear {
             viewModel.getBooks()
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

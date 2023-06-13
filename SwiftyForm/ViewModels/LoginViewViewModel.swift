@@ -15,7 +15,7 @@ class LoginViewViewModel: ObservableObject {
     @Published var borderColor: CGFloat = 0
     @Published var readyToNavigate: Bool = false
     
-    @Published var isAuthenticated: Bool = false
+    @Published var isAuthenticated: Bool = true
     
     func performLogin() {
         
@@ -39,6 +39,7 @@ class LoginViewViewModel: ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.isAuthenticated = false
+                    self.readyToNavigate = false
                     print("Error: \(error)")
                 }
             }

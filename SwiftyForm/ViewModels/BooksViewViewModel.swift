@@ -25,6 +25,10 @@ class BooksViewViewModel: ObservableObject {
             return
         }
         
+        dump(accessToken)
+        dump(refreshedAccessToken)
+        dump(expiresAt)
+        
         if !isDateValid(date: expiresAt) {
             BooksService().refreshToken(refreshToken: refreshedAccessToken) { result in
                 switch result {
@@ -56,6 +60,7 @@ class BooksViewViewModel: ObservableObject {
         }
     }
     
+    // MARK: - isDateValid()
     func isDateValid(date: String) -> Bool {
         
         let dateFormatter = ISO8601DateFormatter()
