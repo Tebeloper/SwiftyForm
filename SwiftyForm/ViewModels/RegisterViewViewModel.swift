@@ -30,7 +30,6 @@ class RegisterViewViewModel: ObservableObject {
             confirmedPassword = ""
             password = ""
             passwordsMatch = false
-            
             errorMessage = "Please fill in all fields."
             
             return
@@ -38,6 +37,7 @@ class RegisterViewViewModel: ObservableObject {
         
         guard password == confirmedPassword else {
             borderColor = 0.5
+            passwordsMatch = false
             errorMessage = "Passwords don't match."
             return
         }
