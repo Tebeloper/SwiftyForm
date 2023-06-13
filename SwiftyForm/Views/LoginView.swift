@@ -85,11 +85,10 @@ struct LoginView: View {
                         Spacer()
                         
                         // MARK: - Log In Button Component
-                        SFButton(title: "Log In") {
-                            viewModel.performLogin()
-                        }
-                        .navigationDestination(isPresented: $viewModel.readyToNavigate) {
-                            BooksView()
+                        NavigationLink(destination: BooksView(), isActive: $viewModel.isAuthenticated) {
+                            SFButton(title: "Login") {
+                                viewModel.performLogin()
+                            }
                         }
                     } //: Form VStack
                     

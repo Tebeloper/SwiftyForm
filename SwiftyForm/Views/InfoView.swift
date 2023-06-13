@@ -19,6 +19,7 @@ struct InfoView: View {
             
             Text("iOS Developer")
                 .font(.largeTitle)
+                .bold()
             
             HStack(spacing: 16) {
                 Image("linkedin")

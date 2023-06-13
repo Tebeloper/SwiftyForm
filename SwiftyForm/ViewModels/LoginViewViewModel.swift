@@ -15,7 +15,7 @@ class LoginViewViewModel: ObservableObject {
     @Published var borderColor: CGFloat = 0
     @Published var readyToNavigate: Bool = false
     
-    @Published var isAuthenticated: Bool = true
+    @Published var isAuthenticated: Bool = false
     
     func performLogin() {
         
@@ -26,12 +26,15 @@ class LoginViewViewModel: ObservableObject {
             case .success(let loginResponse):
                 defaults.setValue(loginResponse.access_token, forKey: "token")
                 defaults.setValue(loginResponse.refresh_token, forKey: "refreshToken")
+                defaults.setValue(loginResponse.expires_at, forKey: "expiresAt")
                 
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
                     self.readyToNavigate = true
                 }
-                                
+                
+                
+                
             case .failure(let error):
                 
                 DispatchQueue.main.async {

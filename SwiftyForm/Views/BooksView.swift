@@ -12,8 +12,23 @@ struct BooksView: View {
     @StateObject var viewModel = BooksViewViewModel()
     
     var body: some View {
-        NavigationView {
+        VStack {
             Text("Hello World!")
+                .font(.largeTitle)
+                .bold()
+                .foregroundStyle(
+                    LinearGradient(colors: [.blue,
+                                            .gray,
+                                            .orange
+                    ],
+                                   startPoint: .topLeading,
+                                   endPoint: .bottomTrailing)
+                )
+            
+            SFButton(title: "getBooks()") {
+                viewModel.getBooks()
+            }
+            
         }
         .onAppear {
             viewModel.getBooks()

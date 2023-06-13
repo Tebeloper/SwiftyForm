@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct MainView: View {
     
     @State private var showingRegisterSheet: Bool = false
     @State private var showingLoginSheet: Bool = false
-
+    
     
     // An instance for Haptic Feedback Notifications
     let hapticFeedback = UINotificationFeedbackGenerator()
@@ -63,12 +64,12 @@ struct MainView: View {
                     .sheet(isPresented: $showingRegisterSheet) {
                         RegisterView()
                     }
-
+                    
                     Text("|")
                         .foregroundColor(.white)
                         .bold()
                         .font(.largeTitle)
-
+                    
                     Button {
                         showingLoginSheet = true
                         hapticFeedback.notificationOccurred(.success)
@@ -81,7 +82,7 @@ struct MainView: View {
                     .sheet(isPresented: $showingLoginSheet) {
                         LoginView()
                     }
-
+                    
                 } //:HStack
                 .padding()
                 .background(

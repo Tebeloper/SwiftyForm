@@ -125,8 +125,8 @@
 		CBAD50192A1E147C0017411A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CB726D2C2A1F9BC9003EDD14 /* LoginModel.swift */,
 				CB726D2E2A1F9BDD003EDD14 /* RegisterModel.swift */,
+				CB726D2C2A1F9BC9003EDD14 /* LoginModel.swift */,
 				CB8CD1482A24F5B00087B288 /* BookModel.swift */,
 			);
 			path = Models;
