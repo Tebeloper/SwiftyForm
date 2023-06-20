@@ -18,7 +18,7 @@ A Login/Register Form using JWT to authendicate and maintain user's sessions.
 ![App Screenshot](https://i.postimg.cc/7ZqkdZw7/Simulator-Screenshot-i-Phone-14-Pro-2023-06-13-at-17-07-41.png)
 
 #### info Screen
-![App Screenshot](https://i.postimg.cc/Kzpjvgcd/Simulator-Screenshot-i-Phone-14-Pro-2023-06-13-at-17-07-48.png)
+[![Simulator-Screenshot-i-Phone-14-Pro-2023-06-13-at-17-07-48.png](https://i.postimg.cc/Kzpjvgcd/Simulator-Screenshot-i-Phone-14-Pro-2023-06-13-at-17-07-48.png)](https://postimg.cc/WFrT5zkn)
 
 #### Register Screen
 ![App Screenshot](https://i.postimg.cc/kM8DdD3h/Simulator-Screenshot-i-Phone-14-Pro-2023-06-13-at-17-07-55.png)
