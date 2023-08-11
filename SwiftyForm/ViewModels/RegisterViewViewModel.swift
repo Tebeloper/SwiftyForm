@@ -61,7 +61,7 @@ class RegisterViewViewModel: ObservableObject {
         
     }
     
-    //Regx
+    ///Regx
     //    func isValidPassword() -> Bool {
     //        // least one uppercase,
     //        // least one digit
