@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CB204ED72A2A40EB003A1220 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CB204ED62A2A40EB003A1220 /* Lottie */; };
+		CB32C3402A87898C00E2BA75 /* 6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C3382A87898C00E2BA75 /* 6.jpeg */; };
+		CB32C3412A87898C00E2BA75 /* 7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C3392A87898C00E2BA75 /* 7.jpeg */; };
+		CB32C3422A87898C00E2BA75 /* 8.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C33A2A87898C00E2BA75 /* 8.jpeg */; };
+		CB32C3432A87898C00E2BA75 /* 5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C33B2A87898C00E2BA75 /* 5.jpeg */; };
+		CB32C3442A87898C00E2BA75 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C33C2A87898C00E2BA75 /* 4.jpeg */; };
+		CB32C3452A87898C00E2BA75 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C33D2A87898C00E2BA75 /* 3.jpeg */; };
+		CB32C3462A87898C00E2BA75 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C33E2A87898C00E2BA75 /* 2.jpeg */; };
+		CB32C3472A87898C00E2BA75 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CB32C33F2A87898C00E2BA75 /* 1.jpeg */; };
 		CB726D2D2A1F9BC9003EDD14 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB726D2C2A1F9BC9003EDD14 /* LoginModel.swift */; };
 		CB726D2F2A1F9BDD003EDD14 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB726D2E2A1F9BDD003EDD14 /* RegisterModel.swift */; };
 		CB8A809B2A1F4FE700C697F9 /* SFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A809A2A1F4FE700C697F9 /* SFButton.swift */; };
@@ -29,6 +37,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB32C3382A87898C00E2BA75 /* 6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpeg; sourceTree = "<group>"; };
+		CB32C3392A87898C00E2BA75 /* 7.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpeg; sourceTree = "<group>"; };
+		CB32C33A2A87898C00E2BA75 /* 8.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpeg; sourceTree = "<group>"; };
+		CB32C33B2A87898C00E2BA75 /* 5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpeg; sourceTree = "<group>"; };
+		CB32C33C2A87898C00E2BA75 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
+		CB32C33D2A87898C00E2BA75 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
+		CB32C33E2A87898C00E2BA75 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		CB32C33F2A87898C00E2BA75 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		CB726D2C2A1F9BC9003EDD14 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		CB726D2E2A1F9BDD003EDD14 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		CB8A809A2A1F4FE700C697F9 /* SFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFButton.swift; sourceTree = "<group>"; };
@@ -62,6 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB32C3372A87895500E2BA75 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				CB32C33F2A87898C00E2BA75 /* 1.jpeg */,
+				CB32C33E2A87898C00E2BA75 /* 2.jpeg */,
+				CB32C33D2A87898C00E2BA75 /* 3.jpeg */,
+				CB32C33C2A87898C00E2BA75 /* 4.jpeg */,
+				CB32C33B2A87898C00E2BA75 /* 5.jpeg */,
+				CB32C3382A87898C00E2BA75 /* 6.jpeg */,
+				CB32C3392A87898C00E2BA75 /* 7.jpeg */,
+				CB32C33A2A87898C00E2BA75 /* 8.jpeg */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		CBAD4FFD2A1E14510017411A = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +116,7 @@
 				CBAD50192A1E147C0017411A /* Models */,
 				CBAD50182A1E146F0017411A /* Views */,
 				CBAD50172A1E14650017411A /* ViewModels */,
+				CB32C3372A87895500E2BA75 /* Screenshots */,
 				CBAD500F2A1E14520017411A /* Preview Content */,
 			);
 			path = SwiftyForm;
@@ -223,8 +255,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB32C3422A87898C00E2BA75 /* 8.jpeg in Resources */,
+				CB32C3402A87898C00E2BA75 /* 6.jpeg in Resources */,
+				CB32C3412A87898C00E2BA75 /* 7.jpeg in Resources */,
 				CBAD50112A1E14520017411A /* Preview Assets.xcassets in Resources */,
+				CB32C3442A87898C00E2BA75 /* 4.jpeg in Resources */,
+				CB32C3472A87898C00E2BA75 /* 1.jpeg in Resources */,
+				CB32C3452A87898C00E2BA75 /* 3.jpeg in Resources */,
 				CBAD500E2A1E14520017411A /* Assets.xcassets in Resources */,
+				CB32C3432A87898C00E2BA75 /* 5.jpeg in Resources */,
+				CB32C3462A87898C00E2BA75 /* 2.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +422,8 @@
 				DEVELOPMENT_TEAM = G5MBR5CGM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftyForm;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,6 +452,8 @@
 				DEVELOPMENT_TEAM = G5MBR5CGM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftyForm;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
