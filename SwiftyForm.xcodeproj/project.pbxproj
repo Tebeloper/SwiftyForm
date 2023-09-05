@@ -30,6 +30,7 @@
 		CBAE4FDE2A1E234100C00323 /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE4FDD2A1E234100C00323 /* RegisterViewViewModel.swift */; };
 		CBAE4FE02A1E234D00C00323 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE4FDF2A1E234D00C00323 /* LoginViewViewModel.swift */; };
 		CBAE4FE22A1E235700C00323 /* BooksViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE4FE12A1E235700C00323 /* BooksViewViewModel.swift */; };
+		CBC960062A9E0A3700838758 /* InfoViewOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC960052A9E0A3700838758 /* InfoViewOptions.swift */; };
 		CBD2CCEA2A372CB10049ECB8 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2CCE92A372CB10049ECB8 /* TabViews.swift */; };
 		CBD2CCEC2A372DBB0049ECB8 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2CCEB2A372DBB0049ECB8 /* InfoView.swift */; };
 		CBEEA4122A2751750024FB67 /* RegisterViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEA4112A2751750024FB67 /* RegisterViewExtensions.swift */; };
@@ -60,6 +61,7 @@
 		CBAE4FDD2A1E234100C00323 /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
 		CBAE4FDF2A1E234D00C00323 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		CBAE4FE12A1E235700C00323 /* BooksViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewViewModel.swift; sourceTree = "<group>"; };
+		CBC960052A9E0A3700838758 /* InfoViewOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewOptions.swift; sourceTree = "<group>"; };
 		CBD2CCE92A372CB10049ECB8 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		CBD2CCEB2A372DBB0049ECB8 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		CBEEA4112A2751750024FB67 /* RegisterViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewExtensions.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				CBAE4FDD2A1E234100C00323 /* RegisterViewViewModel.swift */,
 				CBAE4FDF2A1E234D00C00323 /* LoginViewViewModel.swift */,
 				CBAE4FE12A1E235700C00323 /* BooksViewViewModel.swift */,
+				CBC960052A9E0A3700838758 /* InfoViewOptions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				CBD2CCEC2A372DBB0049ECB8 /* InfoView.swift in Sources */,
 				CBAE4FE22A1E235700C00323 /* BooksViewViewModel.swift in Sources */,
 				CBAE4FD72A1E22A500C00323 /* LoginView.swift in Sources */,
+				CBC960062A9E0A3700838758 /* InfoViewOptions.swift in Sources */,
 				CBAE4FE02A1E234D00C00323 /* LoginViewViewModel.swift in Sources */,
 				CBAE4FD92A1E22B100C00323 /* RegisterView.swift in Sources */,
 				CB726D2D2A1F9BC9003EDD14 /* LoginModel.swift in Sources */,

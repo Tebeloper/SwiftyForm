@@ -22,22 +22,24 @@ struct InfoView: View {
                 .bold()
             
             HStack(spacing: 16) {
-                Image("linkedin")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                Image("github")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                Image("twitter")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                Image("reddit")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
+                Link(destination: URL(string: "https://github.com/Tebeloper")!) {
+                    Image("github")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                }
+                Link(destination: URL(string: "https://www.linkedin.com/in/dimitris-gkarlemos/")!) {
+                    Image("linkedin")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                }
+                Link(destination: URL(string: "https://twitter.com/tebeloper")!) {
+                    Image("x")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                }
             } //:HStack
             
             Spacer()

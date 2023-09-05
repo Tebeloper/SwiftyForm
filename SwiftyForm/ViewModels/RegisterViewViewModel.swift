@@ -21,7 +21,7 @@ class RegisterViewViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var isPasswordValid: Bool = true
     
-    func PerformRegister() {
+    func performRegister() {
         
         guard !username.trimmingCharacters(in: .whitespaces).isEmpty,
               !password.trimmingCharacters(in: .whitespaces).isEmpty,

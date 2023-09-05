@@ -116,7 +116,7 @@ struct RegisterView: View {
                 
                 // MARK: - Register Button Component
                 SFButton(title: "Register") {
-                    viewModel.PerformRegister()
+                    viewModel.performRegister()
                 }
                 .alert(isPresented: $viewModel.showAlert) {
                     Alert(title: Text("User successfully created!"),

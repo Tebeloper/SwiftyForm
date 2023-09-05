@@ -12,7 +12,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 VStack {
                     
@@ -85,6 +85,7 @@ struct LoginView: View {
                         Spacer()
                         
                         // MARK: - Log In Button Component
+                        /// deprecated in iOS 16.0
                         NavigationLink(destination: BooksView(), isActive: $viewModel.readyToNavigate) {
                             SFButton(title: "Login") {
                                 viewModel.performLogin()
